@@ -1,8 +1,12 @@
 <script lang="ts">
+    import type { Task } from '../model';
     import TodoitemActions from './TodoitemActions.svelte';
+
+    export let data:Task;
+
 </script>
 <div>
-    <span>Buy some donuts</span>
+    <span>{data.id} {data.title}</span>
     <TodoitemActions on:delete />
 </div>
 
