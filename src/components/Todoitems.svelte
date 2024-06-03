@@ -8,8 +8,11 @@
 </script>
 
 <div>
-  <Todoitem  on:delete = {onDelete}/>
-  
+  <Todoitem data = {{
+    id : "1",
+    title : "Buy some donuts",
+    completed : false, 
+  }}  on:delete = {onDelete}/>  
 </div>
 
 <style>
