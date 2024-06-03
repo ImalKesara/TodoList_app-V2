@@ -6,7 +6,7 @@
 
 </script>
 <div>
-    <span>{data.id} {data.title}</span>
+    <span>{data.title}</span>
     <TodoitemActions on:delete />
 </div>
 
