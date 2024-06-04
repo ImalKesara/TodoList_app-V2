@@ -4,9 +4,11 @@
 
     export let data:Task;
 
+    
+
 </script>
 <div>
-    <span>{data.title}</span>
+    <span >{data.title}</span>
     <TodoitemActions on:delete />
 </div>
 
