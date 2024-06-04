@@ -28,8 +28,11 @@
 
 <div>
   {#each items as item(item.id) }
-    <Todoitem data = {item}  on:delete = {()=>onDelete(item)}/>  
+    <Todoitem bind:data = {item}  on:delete = {()=>onDelete(item)}/>  
   {/each}
+
+  {JSON.stringify(items)}
+
 </div>
 
 <style>
