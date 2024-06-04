@@ -8,8 +8,10 @@
 
 </script>
 <div>
-    <span >{data.title}</span>
+    <span contenteditable="true" bind:textContent={data.title}></span>
     <TodoitemActions on:delete />
+
+    
 </div>
 
 
