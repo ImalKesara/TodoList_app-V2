@@ -9,9 +9,7 @@
 </script>
 <div>
     <span contenteditable="true" bind:textContent={data.title}></span>
-    <TodoitemActions on:delete />
-
-    
+    <TodoitemActions on:delete />    
 </div>
 
 

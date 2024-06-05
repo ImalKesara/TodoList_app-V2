@@ -23,6 +23,6 @@
 
 
 <div class="card">
- <Todoitems bind:items= {items} /> 
- <TodoitemCreate bind:items = {items} />
+	<Todoitems bind:items= {items} /> 
+	<TodoitemCreate bind:items = {items} />
 </div>
