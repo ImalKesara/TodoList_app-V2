@@ -4,19 +4,7 @@
 	import type { Task } from './model.ts';
 	
 
-	let items:Task[] =[
-    {
-      id : "1",
-      title : "Buy some donuts",
-      completed : false, 
-    },
-    {
-      id : "2",
-      title : "Buy some chocolut",
-      completed : false, 
-    }
-
-  ];
+	let items:Task[] =[];
   
 </script>
 

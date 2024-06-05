@@ -10,6 +10,13 @@
             return; // noting excute
         }
 
+        // items.push({
+        //     id: uuidv4(),
+        //     title,
+        //     completed:false
+        // })
+        
+
         items = [...items, {
             id : uuidv4(),
             title,
