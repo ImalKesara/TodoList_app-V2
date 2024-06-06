@@ -1,6 +1,6 @@
 <script lang="ts">
-	import TodoitemCreate from './components/TodoitemCreate.svelte';
-	import Todoitems from './components/Todoitems.svelte';
+	import TodoitemCreate from './components/items/TodoitemCreate.svelte';
+	import Todoitems from './components/items/Todoitems.svelte';
 	import type { Task } from './model.ts';
 	
 
