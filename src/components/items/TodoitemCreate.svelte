@@ -10,6 +10,12 @@
             return; // noting excute
         }
 
+        if(title == ""){
+            return;
+        }
+
+
+
         // items.push({
         //     id: uuidv4(),
         //     title,
@@ -31,12 +37,17 @@
     }
 </script>
 
-<input bind:value= {title} type="text" on:keydown={onKeydown} placeholder="Create a new task">
+
+    <input bind:value= {title} type="text" on:keydown={onKeydown} placeholder="Create a new task">
+
+
 
 <style>
+    
     input{
-        width: 100%;
-        padding: 1em;
-        box-sizing: border-box;
+        margin-top:30px;
+        padding: 10px;
+        width:100%;
+        box-sizing:border-box;
     }
 </style>
