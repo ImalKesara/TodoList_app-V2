@@ -9,13 +9,16 @@
       alert('deleted successfully')
   }
   
+  const onEdit = (item:Task)=>{
+      
+  }
 
   
 </script>
 
 <div>
   {#each items as item(item.id) }
-    <Todoitem  bind:data = {item}  on:delete = {()=>onDelete(item)}/>  
+    <Todoitem  bind:data = {item}  on:delete = {()=>onDelete(item)} on:edit = {()=>onEdit(item)}/>  
   {/each}
 
   <!-- {JSON.stringify(items)} -->
