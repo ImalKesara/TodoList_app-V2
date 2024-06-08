@@ -9,8 +9,9 @@
   const dispatch = createEventDispatcher();
   
   function close():void{
-    visible =false;
+    dispatch("close");
   }
+
   function save():void{
     dispatch("save", data);
   }
