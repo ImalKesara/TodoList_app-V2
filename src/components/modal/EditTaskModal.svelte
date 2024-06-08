@@ -2,8 +2,8 @@
 	import type { Task } from '../../model';
     import Modal from './../util/modal/Modal.svelte';
 
-  let visible :boolean = false;
-  export let data:Task;
+  export let visible :boolean = false;
+  export let data:Task | null;
   
   function close():void{
     visible =false;
