@@ -4,13 +4,19 @@
 
     const dispatch = createEventDispatcher();
 
+    const onEdit = ()=>{
+        dispatch('edit');
+    }
+
     const onDelete = () => {
         dispatch('delete')
     }
+
+
 </script>
 
 
 <div>
-    <button>Edit</button>
+    <button on:click={onEdit}>Edit</button>
     <button on:click={onDelete}>Delete</button>
 </div>
