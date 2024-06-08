@@ -1,7 +1,10 @@
 <script lang="ts">
+  import {createEventDispatcher} from 'svelte';
   import type { Task } from "../../model";
   import Todoitem from "./Todoitem.svelte";
 
+
+  const dispatch = createEventDispatcher();
   export let items:Task[];
 
   const onDelete = (item :Task) => {
@@ -9,16 +12,16 @@
       alert('deleted successfully')
   }
   
-  const onEdit = (item:Task)=>{
-      
-  }
-
   
 </script>
 
 <div>
   {#each items as item(item.id) }
-    <Todoitem  bind:data = {item}  on:delete = {()=>onDelete(item)} on:edit = {()=>onEdit(item)}/>  
+    <Todoitem  
+    bind:data = {item}  
+    on:delete = {()=>onDelete(item)}  
+    on:edit = {()=> dispatch("edit",item)}
+    />  
   {/each}
 
   <!-- {JSON.stringify(items)} -->
