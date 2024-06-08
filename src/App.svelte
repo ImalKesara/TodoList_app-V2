@@ -8,10 +8,22 @@
 	let editTaskModalData : Task | null  = null;
 	let EditTaskModalVisible = false;
 
+
+
 	let items:Task[] =[];
 
 	const onTaskEdit = (e)=>{
-		console.log(e.detail)
+
+		editTaskModalData = structuredClone(e.detail);
+		console.log(e);
+		console.log(e.detail);
+		EditTaskModalVisible = true;	
+
+	}
+
+	const  onTaskSavebtn = (data)=>{
+		console.log(data.detail)
+		items = items.map((v:Task)=> v.id == data.detail.id ? data.detail : v  );
 	}
 
   
@@ -21,7 +33,7 @@
 
 <div class="card">
 	<!-- Edit pop menu -->
-	<EditTaskModal visible = {EditTaskModalVisible} data = {editTaskModalData} />
+	<EditTaskModal visible = {EditTaskModalVisible} data = {editTaskModalData} on:save={onTaskSavebtn} />
 	<!-- Todoitems -->
 	<Todoitems bind:items= {items} on:edit= {onTaskEdit}/> 
 	<!-- inputBox -->
