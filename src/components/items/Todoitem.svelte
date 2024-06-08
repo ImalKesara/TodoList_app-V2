@@ -8,7 +8,7 @@
 </script>
 <div>
     <span spellcheck="false" contenteditable="true" bind:textContent={data.title}></span>
-    <TodoitemActions on:delete />    
+    <TodoitemActions on:delete on:edit/>    
 </div>
 
 
