@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Todoitem from './components/items/Todoitem.svelte';
-  import { onMount } from 'svelte';
+  	import { onMount } from 'svelte';
 	import TodoitemCreate from './components/items/TodoitemCreate.svelte';
 	import Todoitems from './components/items/Todoitems.svelte';
   	import EditTaskModal from './components/modal/EditTaskModal.svelte';
 	import type { Task } from './model.ts';
+  	import Taskio from './components/file/Taskio.svelte';
 
 	
 	let editTaskModalData : Task | null  = null;
@@ -63,4 +64,6 @@
 	<Todoitems bind:items= {items} on:edit= {onTaskEdit} on:delete = {saveToLocalStorage} on:titlechange = {saveToLocalStorage}/> 
 	<!-- inputBox -->
 	<TodoitemCreate bind:items = {items} on:create ={saveToLocalStorage}/>  
+
+	<Taskio bind:items= {items} />
 </div>
