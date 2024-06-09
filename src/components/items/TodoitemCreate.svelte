@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
 	import type { Task } from './../model.ts';
     import { v4 as uuidv4 } from 'uuid';
     export let items:Task[];
 
     let title : string = "";
+    const dispatch = createEventDispatcher();
 
     const onKeydown = (e:KeyboardEvent)=>{
         if(e.key != "Enter"){
@@ -33,8 +35,12 @@
 
         console.log(items)
 
+        dispatch("create");
         title = "";        
     }
+
+
+
 </script>
 
 

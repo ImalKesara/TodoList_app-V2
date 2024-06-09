@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Todoitem from './components/items/Todoitem.svelte';
+  import { onMount } from 'svelte';
 	import TodoitemCreate from './components/items/TodoitemCreate.svelte';
 	import Todoitems from './components/items/Todoitems.svelte';
   	import EditTaskModal from './components/modal/EditTaskModal.svelte';
@@ -20,11 +22,34 @@
 	const  onTaskSavebtn = (data)=>{
 		console.log(data.detail)
 		items = items.map((v:Task)=> v.id == data.detail.id ? data.detail : v  );
+		saveToLocalStorage();
 	}  
 
 	const onClose=()=>{
 		EditTaskModalVisible = false;
 	}
+
+	//save local storage
+	const saveToLocalStorage = ()=>{
+		window.localStorage.setItem("Todoitems",JSON.stringify(items))
+	}
+
+	onMount(()=>{
+		const todoItems = window.localStorage.getItem("Todoitems");
+		if(todoItems == null){
+			return;
+		}
+
+		try{
+			const data:Task = JSON.parse(todoItems)
+			items = data;
+		}catch(err){
+			console.error(err)
+		}
+
+		
+
+	})
 
 
 </script>
@@ -35,7 +60,7 @@
 	<!-- Edit pop menu -->
 	<EditTaskModal visible = {EditTaskModalVisible} data = {editTaskModalData} on:save={onTaskSavebtn} on:close={onClose} />
 	<!-- Todoitems -->
-	<Todoitems bind:items= {items} on:edit= {onTaskEdit}/> 
+	<Todoitems bind:items= {items} on:edit= {onTaskEdit} on:delete = {saveToLocalStorage} on:titlechange = {saveToLocalStorage}/> 
 	<!-- inputBox -->
-	<TodoitemCreate bind:items = {items} />  
+	<TodoitemCreate bind:items = {items} on:create ={saveToLocalStorage}/>  
 </div>

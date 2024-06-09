@@ -9,7 +9,7 @@
 
   const onDelete = (item :Task) => {
       items = items.filter((i:Task) => i.id != item.id )
-      alert('deleted successfully')
+      dispatch("delete");
   }
   
   
@@ -17,7 +17,8 @@
 
 <div>
   {#each items as item(item.id) }
-    <Todoitem  
+    <Todoitem
+    on:titlechange
     bind:data = {item}  
     on:delete = {()=>onDelete(item)}  
     on:edit = {()=> dispatch("edit",item)}
