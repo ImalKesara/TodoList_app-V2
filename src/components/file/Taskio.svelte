@@ -44,7 +44,6 @@
 <div>
     <input type="text" placeholder="file name">
     <button on:click={save}>Save file</button>
-    <br>
     <input type="file" bind:files={importFiles}>
 </div>
 
@@ -52,5 +51,9 @@
     div{
         margin-top: 0.5em;
 
+    }
+
+    input[type = "file"]{
+        display: block;
     }
 </style>

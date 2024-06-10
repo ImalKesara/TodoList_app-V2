@@ -60,7 +60,7 @@
 	<!-- Edit pop menu -->
 	<EditTaskModal visible = {modals.editask.visible} data = {modals.editask.data} on:save={onTaskSavebtn} on:close={onClose} />
 	<!-- Todoitems -->
-	<Todoitems bind:items= {items} on:edit= {onTaskEdit} on:delete = {saveToLocalStorage} on:titlechange = {saveToLocalStorage}/> 
+	<Todoitems bind:items= {items} on:edit= {onTaskEdit} on:delete = {saveToLocalStorage} on:titlechange = {saveToLocalStorage} on:completedChange = {saveToLocalStorage}/> 
 	<!-- inputBox -->
 	<TodoitemCreate bind:items = {items} on:create ={saveToLocalStorage}/>  
 

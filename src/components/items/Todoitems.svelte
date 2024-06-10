@@ -18,6 +18,7 @@
 <div>
   {#each items as item(item.id) }
     <Todoitem
+    on:completedChange
     on:titlechange
     bind:data = {item}  
     on:delete = {()=>onDelete(item)}  
