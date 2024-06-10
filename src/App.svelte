@@ -6,18 +6,20 @@
   	import EditTaskModal from './components/modal/EditTaskModal.svelte';
 	import type { Task } from './model.ts';
   	import Taskio from './components/file/Taskio.svelte';
+  import { modals } from './modals';
 
-	
-	let editTaskModalData : Task | null  = null;
-	let EditTaskModalVisible = false;
+	const ITEM_STORAGE_KEY = "Todoitems";
+
+	// I comment this because of refactoring code and also that modals.edittask.data & modals.edittask.visible meaning it declared in modals.ts file
+	// let editTaskModalData : Task | null  = null;
+	// let EditTaskModalVisible = false;
+
 	let items:Task[] =[];
 
 	const onTaskEdit = (e)=>{
 
-		editTaskModalData = structuredClone(e.detail);
-		console.log(e);
-		console.log(e.detail);
-		EditTaskModalVisible = true;
+		modals.editask.data = structuredClone(e.detail);
+		modals.editask.visible = true;
 	}
 
 	const  onTaskSavebtn = (data)=>{
@@ -27,16 +29,16 @@
 	}  
 
 	const onClose=()=>{
-		EditTaskModalVisible = false;
+		modals.editask.visible = false;
 	}
 
 	//save local storage
 	const saveToLocalStorage = ()=>{
-		window.localStorage.setItem("Todoitems",JSON.stringify(items))
+		window.localStorage.setItem(ITEM_STORAGE_KEY,JSON.stringify(items))
 	}
 
 	onMount(()=>{
-		const todoItems = window.localStorage.getItem("Todoitems");
+		const todoItems = window.localStorage.getItem(ITEM_STORAGE_KEY);
 		if(todoItems == null){
 			return;
 		}
@@ -47,9 +49,6 @@
 		}catch(err){
 			console.error(err)
 		}
-
-		
-
 	})
 
 
@@ -59,7 +58,7 @@
 
 <div class="card">
 	<!-- Edit pop menu -->
-	<EditTaskModal visible = {EditTaskModalVisible} data = {editTaskModalData} on:save={onTaskSavebtn} on:close={onClose} />
+	<EditTaskModal visible = {modals.editask.visible} data = {modals.editask.data} on:save={onTaskSavebtn} on:close={onClose} />
 	<!-- Todoitems -->
 	<Todoitems bind:items= {items} on:edit= {onTaskEdit} on:delete = {saveToLocalStorage} on:titlechange = {saveToLocalStorage}/> 
 	<!-- inputBox -->
