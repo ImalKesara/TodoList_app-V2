@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from 'svelte';
 	import type { Task } from './../model.ts';
     import { v4 as uuidv4 } from 'uuid';
     export let items:Task[];
@@ -16,15 +16,6 @@
             return;
         }
 
-
-
-        // items.push({
-        //     id: uuidv4(),
-        //     title,
-        //     completed:false
-        // })
-        
-
         items = [...items, {
             id : uuidv4(),
             title,
@@ -37,16 +28,20 @@
 
         dispatch("create");
         title = "";        
+
+        // items.push({
+        //     id: uuidv4(),
+        //     title,
+        //     completed:false
+        // })
+        
     }
 
 
 
 </script>
 
-
-    <input bind:value= {title} type="text" on:keydown={onKeydown} placeholder="Create a new task">
-
-
+<input bind:value= {title} type="text" on:keydown={onKeydown} placeholder="Create a new task">
 
 <style>
     

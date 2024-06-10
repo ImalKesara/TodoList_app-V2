@@ -1,10 +1,8 @@
 <script lang="ts">
-    export let visible;
-    function close(){
-        visible = false;
-    }
 
-    
+    export let visible:boolean;
+    const close =():void =>{visible = false }
+
 </script>
 
 <div class="modal-bg" on:click={close}>

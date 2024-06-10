@@ -1,22 +1,16 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
 	import type { Task } from '../../model';
-    import Modal from './../util/modal/Modal.svelte';
+  import Modal from './../util/modal/Modal.svelte';
     
-
+  const dispatch = createEventDispatcher();
   export let visible :boolean = false;
   export let data:Task | null;
-  const dispatch = createEventDispatcher();
   
-  function close():void{
-    dispatch("close");
-  }
+  const close = ():void =>{ dispatch("close")}
 
-  function save():void{
-    dispatch("save", data);
-  }
+  const save = ():void =>{dispatch("save", data)}
 
-  
 </script>
 
 

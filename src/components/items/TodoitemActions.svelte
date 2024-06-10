@@ -3,14 +3,8 @@
 
 
     const dispatch = createEventDispatcher();
-
-    const onEdit = ()=>{
-        dispatch('edit');
-    }
-
-    const onDelete = () => {
-        dispatch('delete')
-    }
+    const onEdit = ()=>{dispatch('edit')}
+    const onDelete = () => {dispatch('delete')}
 
 
 </script>

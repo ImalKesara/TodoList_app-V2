@@ -1,14 +1,13 @@
 <script lang="ts">
-	
     import type { Task } from "../../model";
 
-  export let items:Task[] =[];
-  let filename:string = "";
-  let importFiles : FileList;
+    export let items:Task[] =[];
+    let filename:string = "";
+    let importFiles : FileList;
 
 
     //download file that saved on localStorage 
-    function save(){
+    const save = () => {
         const string = JSON.stringify(items);
         const a = document.createElement("a");
         a.href = `data:application/json;charset=utf-8,${string}`;
@@ -17,7 +16,7 @@
     }
     
     //read upload file from computer 
-    function onFilesChanged(files: FileList){
+    const onFilesChanged = (files: FileList) =>{
         if(files == null){
             return;
         }
@@ -38,6 +37,7 @@
     }
 
     $:onFilesChanged(importFiles);
+    
 </script>
 
 
