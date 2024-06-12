@@ -10,7 +10,7 @@
 </script>
 
 
-<div class="bg-red-500">
+<div class="bg-violet-300 rounded-full border-none p-4 shadow-lg text-transform: capitalize font-medium">
     <span spellcheck="false" contenteditable="true" bind:textContent={data.title} on:blur={onTitleBlur}></span>
     <TodoitemActions on:delete on:edit  bind:completed = {data.completed}  on:completedChange />    
 </div>
@@ -19,8 +19,7 @@
 <style>
     div{
         display: flex;
-        padding: 0.5em;
-        border: 1px solid black;
+        /* padding: 0.5em; */
         justify-content: space-between;
         align-items: center;
     }
