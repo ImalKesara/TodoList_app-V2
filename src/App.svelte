@@ -6,7 +6,7 @@
   	import EditTaskModal from './components/modal/EditTaskModal.svelte';
 	import type { Task } from './model.ts';
   	import Taskio from './components/file/Taskio.svelte';
-  import { modals } from './modals';
+  	import { modals } from './modals';
 
 	const ITEM_STORAGE_KEY = "Todoitems";
 
@@ -17,7 +17,6 @@
 	let items:Task[] =[];
 
 	const onTaskEdit = (e)=>{
-
 		modals.editask.data = structuredClone(e.detail);
 		modals.editask.visible = true;
 	}
@@ -54,15 +53,21 @@
 
 </script>
 
+<body>
+	<div class="card" >
+		<!-- Edit pop menu -->
+		<EditTaskModal visible = {modals.editask.visible} data = {modals.editask.data} on:save={onTaskSavebtn} on:close={onClose} />
+		<!-- Todoitems -->
+		<Todoitems bind:items= {items} on:edit= {onTaskEdit} on:delete = {saveToLocalStorage} on:titlechange = {saveToLocalStorage} on:completedChange = {saveToLocalStorage}/> 
+		<!-- inputBox -->
+		<TodoitemCreate bind:items = {items} on:create ={saveToLocalStorage}/>  
 
+		<Taskio bind:items= {items} />
+	</div>
+</body>
 
-<div class="card" >
-	<!-- Edit pop menu -->
-	<EditTaskModal visible = {modals.editask.visible} data = {modals.editask.data} on:save={onTaskSavebtn} on:close={onClose} />
-	<!-- Todoitems -->
-	<Todoitems bind:items= {items} on:edit= {onTaskEdit} on:delete = {saveToLocalStorage} on:titlechange = {saveToLocalStorage} on:completedChange = {saveToLocalStorage}/> 
-	<!-- inputBox -->
-	<TodoitemCreate bind:items = {items} on:create ={saveToLocalStorage}/>  
-
-	<Taskio bind:items= {items} />
-</div>
+<style>	
+	body{
+		@apply bg-gray-50 p-5;
+	}
+</style>
