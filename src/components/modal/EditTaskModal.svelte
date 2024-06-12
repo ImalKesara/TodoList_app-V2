@@ -22,10 +22,8 @@
         <div>
             <input class="rounded-lg p-2 border-2 w-full" type="text" bind:value={data.title}>
             <div>
-                <button class="ease-in duration-300 bg-sky-500 hover:bg-sky-600 rounded-lg  text-white font-bold px-4 py-2" on:click={save}>Save</button>
-                <Buttons color = "red">
-                    Close
-                </Buttons>
+                <Buttons color = "sky" on:click={save} >Save</Buttons>
+                <Buttons color = "red" on:click={close}>Close</Buttons>     
             </div>
         </div>
     </Modal>
