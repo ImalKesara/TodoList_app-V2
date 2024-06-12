@@ -10,7 +10,7 @@
 </script>
 
 
-<div>
+<div class="bg-red-500">
     <span spellcheck="false" contenteditable="true" bind:textContent={data.title} on:blur={onTitleBlur}></span>
     <TodoitemActions on:delete on:edit  bind:completed = {data.completed}  on:completedChange />    
 </div>

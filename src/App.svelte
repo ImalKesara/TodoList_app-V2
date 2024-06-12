@@ -56,7 +56,7 @@
 
 
 
-<div class="card">
+<div class="card" >
 	<!-- Edit pop menu -->
 	<EditTaskModal visible = {modals.editask.visible} data = {modals.editask.data} on:save={onTaskSavebtn} on:close={onClose} />
 	<!-- Todoitems -->
