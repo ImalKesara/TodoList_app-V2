@@ -12,12 +12,18 @@
 
 
 <div>
-    <input type="checkbox" bind:checked={completed} o/>
+    <input type="checkbox" bind:checked={completed} />
     <button on:click={onEdit}>Edit</button>
     <button on:click={onDelete}>Delete</button>
 </div>
 
 <style>
+    div{
+        display: flex;
+        gap: 0.7em;
+        justify-content: center;
+        align-items: center;
+    }
     input[type = "checkbox"]{
         width: 1.1em;
         height: 1.1em;
