@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Buttons from './../util/buttons/Buttons.svelte';
   import { createEventDispatcher } from 'svelte';
 	import type { Task } from '../../model';
   import Modal from './../util/modal/Modal.svelte';
@@ -17,25 +18,27 @@
 {#if visible}
 
     <Modal bind:visible = {visible}>
+        <h1 class="text-lg font-bold m-1">Edit task </h1>
         <div>
-            <span>Edit task </span>
-            <input type="text" bind:value={data.title}>
-            <div class="btns">
-                <button on:click={save}>save</button>
-                <button on:click={close}>close</button>
+            <input class="rounded-lg p-2 border-2 w-full" type="text" bind:value={data.title}>
+            <div>
+                <button class="ease-in duration-300 bg-sky-500 hover:bg-sky-600 rounded-lg  text-white font-bold px-4 py-2" on:click={save}>Save</button>
+                <Buttons color = "red">
+                    Close
+                </Buttons>
             </div>
         </div>
-</Modal>
+    </Modal>
 
 {/if}
 <style>
     div{
         display: flex;
         justify-content: space-between;
+        gap: 0.7em;
     }
-    .btns{
-        display: flex;
-        gap: 0.3em;
+    button{
+        /* @apply border-sky-100 border-2 p-2  bg-sky-500  text-white */
     }
 </style>
 
