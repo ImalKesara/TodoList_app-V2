@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Buttons from './../util/buttons/Buttons.svelte';
-  import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from 'svelte';
 	import type { Task } from '../../model';
-  import Modal from './../util/modal/Modal.svelte';
+    import Modal from './../util/modal/Modal.svelte';
     
   const dispatch = createEventDispatcher();
   export let visible :boolean = false;
@@ -22,6 +22,7 @@
         <div>
             <input class="rounded-lg p-2 border-2 w-full" type="text" bind:value={data.title}>
             <div>
+                <!-- slot check buttons component -->
                 <Buttons color = "sky" on:click={save} >Save</Buttons>
                 <Buttons color = "red" on:click={close}>Close</Buttons>     
             </div>
