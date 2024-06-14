@@ -7,6 +7,7 @@
 	import type { Task } from './model.ts';
   	import Taskio from './components/file/Taskio.svelte';
   	import { modals } from './modals';
+	import './app.css';
 
 	const ITEM_STORAGE_KEY = "Todoitems";
 
