@@ -41,14 +41,11 @@
 
 </script>
 
-<input bind:value= {title} type="text" on:keydown={onKeydown} placeholder="Create a new task">
+<input class="rounded-lg w-full border-1 border-gray-300 mt-10 p-2.5" bind:value= {title} type="text" on:keydown={onKeydown} placeholder="Create a new task">
 
 <style>
     
     input{
-        margin-top:30px;
-        padding: 10px;
-        width:100%;
         box-sizing:border-box;
     }
 </style>
