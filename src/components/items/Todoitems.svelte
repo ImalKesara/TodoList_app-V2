@@ -11,24 +11,37 @@
       items = items.filter((i:Task) => i.id != item.id )
       dispatch("delete");
   }
+
+  $:items = items.sort((a,b)=> a.completed -b.completed); // asending order  -1,2,3.... decending order - b.completed - a.completed 3,2,1...
   
+
+  const getList = (items :Task)=>{
+    return [
+      items.filter((i:Task) => i.completed),
+      items.filter((i:Task) => !i.completed),
+    ]
+  }
+
+  let lists;
+  $:lists = getList(items);
   
 </script>
 
-<div>
-  {#each items as item(item.id) }
-    <Todoitem
-    on:completedChange
-    on:titlechange
-    bind:data = {item}  
-    on:delete = {()=>onDelete(item)}  
-    on:edit = {()=> dispatch("edit",item)}
-    />  
-  {/each}
+{#each lists as list}
+ <!-- this lists loop twice which means list 1 - completed and list 2 - uncompleted  -->
+  <div>
+    {#each list as item(item.id) }
+      <Todoitem
+      on:completedChange
+      on:titlechange
+      bind:data = {item}  
+      on:delete = {()=>onDelete(item)}  
+      on:edit = {()=> dispatch("edit",item)}
+      />  
+    {/each}
+  </div>
+{/each}
 
-  <!-- {JSON.stringify(items)} -->
-
-</div>
 
 <style>
   div{
