@@ -18,12 +18,12 @@
 
 <div>
   <input type="checkbox" bind:checked={completed} />
-  <button on:click={onEdit}
-    ><Icon
-      icon="material-symbols:edit"
+  <button on:click={onEdit}>
+    <Icon
+      icon="material-symbols:edit-outline"
       width="1.4em"
       height="1.4em"
-      style="color: black"
+      style="white"
     />
   </button>
   <button on:click={onDelete}
