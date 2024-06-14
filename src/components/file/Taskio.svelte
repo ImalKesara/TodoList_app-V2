@@ -1,9 +1,11 @@
 <script lang="ts">
     import type { Task } from "../../model";
+    import Buttons from "../util/buttons/Buttons.svelte";
 
     export let items:Task[] =[];
     let filename:string = "";
     let importFiles : FileList;
+    let visible : boolean = false;
 
 
     //download file that saved on localStorage 
@@ -37,15 +39,22 @@
     }
 
     $:onFilesChanged(importFiles);
+
+    function importExportToggle(){
+        visible = !visible;
+    }
     
 </script>
 
+<Buttons color = "sky" on:click= {importExportToggle}>Import & Export</Buttons>
 
-<div>
-    <input type="text" placeholder="file name">
-    <button on:click={save}>Save file</button>
-    <input type="file" bind:files={importFiles}>
-</div>
+{#if visible }    
+    <div>
+        <input type="text" placeholder="file name">
+        <button on:click={save}>Save file</button>
+        <input type="file" bind:files={importFiles}>
+    </div>
+{/if}
 
 <style>
     div{
