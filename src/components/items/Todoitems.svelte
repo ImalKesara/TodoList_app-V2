@@ -17,8 +17,8 @@
 
   const getList = (items :Task)=>{
     return [
-      items.filter((i:Task) => i.completed),
       items.filter((i:Task) => !i.completed),
+      items.filter((i:Task) => i.completed),
     ]
   }
 
@@ -27,26 +27,26 @@
   
 </script>
 
-{#each lists as list}
- <!-- this lists loop twice which means list 1 - completed and list 2 - uncompleted  -->
-  <div>
-    {#each list as item(item.id) }
-      <Todoitem
-      on:completedChange
-      on:titlechange
-      bind:data = {item}  
-      on:delete = {()=>onDelete(item)}  
-      on:edit = {()=> dispatch("edit",item)}
-      />  
-    {/each}
-  </div>
-{/each}
-
+<div class="flex gap-5">
+  {#each lists as list}
+  <!-- this lists loop twice which means list 1 - completed and list 2 - uncompleted  -->
+    <div class="flex gap-2">
+      {#each list as item(item.id) }
+        <Todoitem
+        on:completedChange
+        on:titlechange
+        bind:data = {item}  
+        on:delete = {()=>onDelete(item)}  
+        on:edit = {()=> dispatch("edit",item)}
+        />  
+      {/each}
+    </div>
+  {/each}
+</div>
 
 <style>
   div{
     display: flex;  
-    gap: 1em;
     flex-direction: column;
   }
 </style>
