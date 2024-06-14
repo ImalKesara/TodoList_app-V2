@@ -1,10 +1,12 @@
 <script lang="ts">
     export let color :string = "blue";
-    const COLORS : string = {
+
+    //Record<key,value>
+    const COLORS : Record<string,string> = {
         "sky" :"bg-sky-500 hover:bg-sky-600",
         "red" : "bg-red-500 hover:bg-red-600",
     }
-    function getColor(color){
+    function getColor(color :string){
         return COLORS[color] ?? COLORS["blue"];
     }
 </script>
