@@ -63,7 +63,9 @@
 		<!-- inputBox -->
 		<TodoitemCreate bind:items = {items} on:create ={saveToLocalStorage}/>  
 
-		<Taskio bind:items= {items} />
+		<div class="mt-3">
+			<Taskio bind:items= {items} />
+		</div>
 	</div>
 </body>
 
