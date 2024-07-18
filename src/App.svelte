@@ -81,6 +81,6 @@
 
 <style>
   body {
-    @apply bg-gray-50 p-5;
+    @apply bg-white p-5;
   }
 </style>

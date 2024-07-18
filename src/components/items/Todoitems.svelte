@@ -25,9 +25,9 @@
 </script>
 
 <div class="flex gap-5">
+  <!-- this lists loop twice which means list 1 - completed and list 2 - uncompleted  -->
   {#each lists as list}
     {#if list.length > 0}
-      <!-- this lists loop twice which means list 1 - completed and list 2 - uncompleted  -->
       <div class="flex gap-2">
         {#each list as item (item.id)}
           <Todoitem
